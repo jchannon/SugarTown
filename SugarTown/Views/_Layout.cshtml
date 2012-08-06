@@ -1,0 +1,53 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8" />
+
+   <title>SugarTown - @ViewBag.Title</title>
+  
+   <link href="@Url.Content("~/Content/CSS/main.css")" rel="stylesheet" type="text/css" media="screen" />
+
+   @RenderSection("HeadArea", required: false)
+
+</head>
+<body>
+   <div style="background: url('@Url.Content("~/Content/images/shadow_top.png")') bottom no-repeat; height: 20px; margin: 0 auto; width: 987px;">
+    </div>
+    <div id="container">
+        <div id="header">
+            <a title="Home" href="/posts/" class="noDecoration"><img alt="Sugar Town" src="@Url.Content("~/Content/images/logo.png")" /></a>
+        </div>
+        <div id="topBar">
+            <ul>
+                <li><a href="/posts/">Blog Posts</a></li>
+                <li><a href="/settings/">Settings</a></li>
+            </ul>
+            <div style="clear: both;"></div>
+        </div>
+        
+        <div id="welcomeBar">
+            <ul class="welcome">
+                <li>Welcome!</li>
+            </ul>
+        </div>
+        
+        <div id="main">
+           @RenderBody()
+        </div>
+        
+        <div id="footer">
+            <ul>
+                <li>Copyright &copy; @DateTime.Now.Year</li>
+            </ul>
+        </div>
+        
+    </div>
+    
+   
+    <div style="background: url('@Url.Content("~/Content/images/shadow_bottom.png") ') bottom no-repeat; height: 5px; margin: 0 auto; width: 987px;"></div>
+    
+
+</body>
+</html>

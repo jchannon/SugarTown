@@ -1,0 +1,47 @@
+/*******************
+* Layout
+*******************/
+
+#container { width: 959px; margin: 0 auto; position: relative; background: url('../images/shadow_sides.png') repeat-y left; padding: 10px 14px;}
+
+
+/*******************
+* Header
+*******************/
+#header { background: #24559a; border:solid 1px #033882; border-bottom:1px solid #6988b4; }
+#header img { display: block; margin:10px 0;}
+#header #switch { position: absolute; top: 0; right: 0; }
+#header a { text-align: left; padding: 0; }
+
+/*******************
+* Top bar
+*******************/
+#topBar { width: 957px; background: #036; color: #fff; background: url('../images/nav_bg.jpg') repeat-x; border-left:solid 1px #033882; border-bottom:solid 1px #033882; border-right:solid 1px #033882;}
+
+/***********************
+Welcome Bar
+***********************/
+#welcomeBar { height: 15px; padding: 7px; background: url('../images/ticker_bg.jpg') repeat-x; border-left: 1px solid #b1b1b1; border-bottom: 1px solid #b1b1b1; border-right: 1px solid #b1b1b1;}
+
+#welcomeBar .welcome ul { position: absolute; top: 0; left: 0; }
+#welcomeBar .welcome li { display: inline; }
+#welcomeBar .welcome li a {color:#000; font-weight:normal; text-decoration: none;}
+#welcomeBar .welcome li a { border-left: 1px solid #aaa; padding: 4px 4px 2px 4px; }
+#welcomeBar .welcome li a:hover { background: 0; border-bottom: 4px solid #70c7f0; color: #000; }
+
+/*******************
+* Main
+*******************/
+
+
+/* Error */
+#main .errorred {color:Red;}
+
+
+
+ 
+/*******************
+* Footer
+*******************/
+
+#footer { clear: both; text-align: right; background: #24559a; padding: 4px;  position: relative; }

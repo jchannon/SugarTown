@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95708FD6-C08C-4FC0-9D0D-BED6B233DF9C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SugarTown</RootNamespace>
+    <AssemblyName>SugarTown</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Esent.Interop">
+      <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\Esent.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Spatial">
+      <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\Lucene.Net.Contrib.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SpellChecker">
+      <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\Lucene.Net.Contrib.SpellChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Nancy">
+      <HintPath>..\packages\Nancy.0.11.0\lib\net40\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Hosting.Aspnet">
+      <HintPath>..\packages\Nancy.Hosting.Aspnet.0.11.0\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.RouteHelpers">
+      <HintPath>..\packages\Nancy.RouteHelpers.1.0.8\lib\Nancy.RouteHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor">
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.11.0\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Abstractions">
+      <HintPath>..\packages\RavenDB.Client.1.0.960\lib\net40\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Backup">
+      <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\Raven.Backup.exe</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Embedded">
+      <HintPath>..\packages\RavenDB.Embedded.1.0.960\lib\net40\Raven.Client.Embedded.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight">
+      <HintPath>..\packages\RavenDB.Client.1.0.960\lib\net40\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Database">
+      <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\Raven.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Munin">
+      <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\Raven.Munin.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Smuggler">
+      <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\Raven.Smuggler.exe</HintPath>
+    </Reference>
+    <Reference Include="Raven.Storage.Esent">
+      <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\Raven.Storage.Esent.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Storage.Managed">
+      <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\Raven.Storage.Managed.dll</HintPath>
+    </Reference>
+    <Reference Include="Spatial4n.Core">
+      <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\Spatial4n.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.11.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\CSS\menu.css" />
+    <Content Include="Content\CSS\main.css" />
+    <Content Include="Content\CSS\styles.css" />
+    <Content Include="Content\DataTables-1.9.2\docs\media\css\doc.css" />
+    <Content Include="Content\DataTables-1.9.2\docs\media\css\shCore.css" />
+    <Content Include="Content\DataTables-1.9.2\docs\media\css\shThemeDataTables.css" />
+    <Content Include="Content\DataTables-1.9.2\docs\media\images\arrow.jpg" />
+    <Content Include="Content\DataTables-1.9.2\docs\media\images\extended.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\AutoFill\media\css\AutoFill.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\AutoFill\media\docs\media\css\doc.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\AutoFill\media\docs\media\css\shCore.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\AutoFill\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\AutoFill\media\docs\media\images\arrow.jpg" />
+    <Content Include="Content\DataTables-1.9.2\extras\AutoFill\media\docs\media\images\extended.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\AutoFill\media\images\filler.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColReorder\media\css\ColReorder.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColReorder\media\docs\media\css\doc.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColReorder\media\docs\media\css\shCore.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColReorder\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColReorder\media\docs\media\images\arrow.jpg" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColReorder\media\docs\media\images\extended.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColReorder\media\images\insert.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColVis\media\css\ColVis.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColVis\media\css\ColVisAlt.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColVis\media\docs\media\css\doc.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColVis\media\docs\media\css\shCore.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColVis\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColVis\media\docs\media\images\arrow.jpg" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColVis\media\docs\media\images\extended.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\ColVis\media\images\button.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\FixedColumns\docs\media\css\doc.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\FixedColumns\docs\media\css\shCore.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\FixedColumns\docs\media\css\shThemeDataTables.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\FixedColumns\docs\media\images\arrow.jpg" />
+    <Content Include="Content\DataTables-1.9.2\extras\FixedColumns\docs\media\images\extended.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\Scroller\media\css\dataTables.scroller.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\Scroller\media\docs\media\css\doc.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\Scroller\media\docs\media\css\shCore.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\Scroller\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\Scroller\media\docs\media\images\arrow.jpg" />
+    <Content Include="Content\DataTables-1.9.2\extras\Scroller\media\docs\media\images\extended.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\Scroller\media\images\loading-background.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\css\TableTools.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\css\TableTools_JUI.css" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\images\background.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\images\collection.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\images\collection_hover.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\images\copy.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\images\copy_hover.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\images\csv.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\images\csv_hover.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\images\pdf.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\images\pdf_hover.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\images\print.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\images\print_hover.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\images\xls.png" />
+    <Content Include="Content\DataTables-1.9.2\extras\TableTools\media\images\xls_hover.png" />
+    <Content Include="Content\DataTables-1.9.2\media\css\demo_page.css" />
+    <Content Include="Content\DataTables-1.9.2\media\css\demo_table.css" />
+    <Content Include="Content\DataTables-1.9.2\media\css\demo_table_jui.css" />
+    <Content Include="Content\DataTables-1.9.2\media\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTables-1.9.2\media\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\DataTables-1.9.2\media\images\back_disabled.png" />
+    <Content Include="Content\DataTables-1.9.2\media\images\back_enabled.png" />
+    <Content Include="Content\DataTables-1.9.2\media\images\back_enabled_hover.png" />
+    <Content Include="Content\DataTables-1.9.2\media\images\favicon.ico" />
+    <Content Include="Content\DataTables-1.9.2\media\images\forward_disabled.png" />
+    <Content Include="Content\DataTables-1.9.2\media\images\forward_enabled.png" />
+    <Content Include="Content\DataTables-1.9.2\media\images\forward_enabled_hover.png" />
+    <Content Include="Content\DataTables-1.9.2\media\images\sort_asc.png" />
+    <Content Include="Content\DataTables-1.9.2\media\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTables-1.9.2\media\images\sort_both.png" />
+    <Content Include="Content\DataTables-1.9.2\media\images\sort_desc.png" />
+    <Content Include="Content\DataTables-1.9.2\media\images\sort_desc_disabled.png" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\nav_bg.jpg" />
+    <Content Include="Content\Images\nav_bg_hover.jpg" />
+    <Content Include="Content\Images\shadow_bottom.png" />
+    <Content Include="Content\Images\shadow_sides.png" />
+    <Content Include="Content\Images\shadow_top.png" />
+    <Content Include="Content\Images\ticker_bg.jpg" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\smoothness\jquery-ui.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\docs\media\js\doc.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\docs\media\js\jquery.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\docs\media\js\shBrushJScript.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\docs\media\js\shCore.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\AutoFill\media\docs\media\js\doc.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\AutoFill\media\docs\media\js\jquery.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\AutoFill\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\AutoFill\media\docs\media\js\shCore.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\AutoFill\media\js\AutoFill.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\AutoFill\media\js\AutoFill.min.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\ColReorder\media\docs\media\js\doc.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\ColReorder\media\docs\media\js\jquery.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\ColReorder\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\ColReorder\media\docs\media\js\shCore.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\ColReorder\media\js\ColReorder.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\ColReorder\media\js\ColReorder.min.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\ColVis\media\docs\media\js\doc.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\ColVis\media\docs\media\js\jquery.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\ColVis\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\ColVis\media\docs\media\js\shCore.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\ColVis\media\js\ColVis.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\ColVis\media\js\ColVis.min.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\FixedColumns\docs\media\js\doc.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\FixedColumns\docs\media\js\jquery.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\FixedColumns\docs\media\js\shBrushJScript.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\FixedColumns\docs\media\js\shCore.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\FixedColumns\media\js\FixedColumns.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\FixedColumns\media\js\FixedColumns.min.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\Scroller\media\docs\media\js\doc.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\Scroller\media\docs\media\js\jquery.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\Scroller\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\Scroller\media\docs\media\js\shCore.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\Scroller\media\js\dataTables.scroller.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\Scroller\media\js\dataTables.scroller.min.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\TableTools\media\js\TableTools.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\TableTools\media\js\TableTools.min.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\extras\TableTools\media\js\ZeroClipboard.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\media\js\jquery.dataTables.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\media\js\jquery.dataTables.min.js" />
+    <Content Include="Content\Scripts\DataTables-1.9.2\media\js\jquery.js" />
+    <Content Include="Content\Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Content\Scripts\jquery-1.4.4.js" />
+    <Content Include="Content\Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Content\Scripts\tinymce\jquery.tinymce.js" />
+    <Content Include="Content\Scripts\tinymce\langs\en.js" />
+    <Content Include="Content\Scripts\tinymce\license.txt" />
+    <Content Include="Content\Scripts\tinymce\plugins\advhr\css\advhr.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\advhr\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\advhr\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\advhr\js\rule.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\advhr\langs\en_dlg.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\advhr\rule.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\advimage\css\advimage.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\advimage\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\advimage\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\advimage\image.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\advimage\img\sample.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\advimage\js\image.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\advimage\langs\en_dlg.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\advlink\css\advlink.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\advlink\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\advlink\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\advlink\js\advlink.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\advlink\langs\en_dlg.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\advlink\link.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\advlist\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\advlist\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\autolink\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\autolink\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\autoresize\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\autoresize\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\autosave\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\autosave\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\autosave\langs\en.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\bbcode\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\bbcode\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\contextmenu\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\contextmenu\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\directionality\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\directionality\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\emotions.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-cool.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-cry.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-embarassed.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-frown.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-innocent.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-kiss.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-laughing.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-money-mouth.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-sealed.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-smile.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-surprised.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-tongue-out.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-undecided.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-wink.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\img\smiley-yell.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\js\emotions.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\emotions\langs\en_dlg.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\example\dialog.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\example\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\example\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\example\img\example.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\example\js\dialog.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\example\langs\en.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\example\langs\en_dlg.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\example_dependency\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\example_dependency\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\fullpage\css\fullpage.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\fullpage\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\fullpage\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\fullpage\fullpage.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\fullpage\js\fullpage.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\fullpage\langs\en_dlg.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\fullscreen\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\fullscreen\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\fullscreen\fullscreen.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\iespell\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\iespell\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\inlinepopups\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\inlinepopups\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\img\alert.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\img\button.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\img\buttons.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\img\confirm.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\img\corners.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\img\horizontal.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\img\vertical.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\window.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\inlinepopups\template.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\insertdatetime\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\insertdatetime\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\layer\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\layer\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\legacyoutput\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\legacyoutput\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\lists\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\lists\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\media\css\media.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\media\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\media\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\media\js\embed.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\media\js\media.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\media\langs\en_dlg.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\media\media.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="Content\Scripts\tinymce\plugins\nonbreaking\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\nonbreaking\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\noneditable\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\noneditable\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\pagebreak\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\pagebreak\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\paste\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\paste\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\paste\js\pastetext.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\paste\js\pasteword.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\paste\langs\en_dlg.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\paste\pastetext.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\paste\pasteword.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\preview\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\preview\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\preview\example.html" />
+    <Content Include="Content\Scripts\tinymce\plugins\preview\jscripts\embed.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\preview\preview.html" />
+    <Content Include="Content\Scripts\tinymce\plugins\print\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\print\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\save\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\save\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\searchreplace\css\searchreplace.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\searchreplace\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\searchreplace\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\searchreplace\js\searchreplace.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\searchreplace\langs\en_dlg.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\searchreplace\searchreplace.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\spellchecker\css\content.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\spellchecker\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\spellchecker\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\spellchecker\img\wline.gif" />
+    <Content Include="Content\Scripts\tinymce\plugins\style\css\props.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\style\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\style\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\style\js\props.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\style\langs\en_dlg.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\style\props.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\style\readme.txt" />
+    <Content Include="Content\Scripts\tinymce\plugins\tabfocus\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\tabfocus\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\table\cell.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\table\css\cell.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\table\css\row.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\table\css\table.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\table\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\table\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\table\js\cell.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\table\js\merge_cells.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\table\js\row.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\table\js\table.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\table\langs\en_dlg.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\table\merge_cells.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\table\row.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\table\table.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\template\blank.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\template\css\template.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\template\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\template\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\template\js\template.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\template\langs\en_dlg.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\template\template.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\visualblocks\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\visualblocks\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\visualchars\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\visualchars\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\wordcount\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\wordcount\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\abbr.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\acronym.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\attributes.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\cite.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\css\attributes.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\css\popup.css" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\del.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\editor_plugin.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\editor_plugin_src.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\ins.htm" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\js\abbr.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\js\acronym.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\js\attributes.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\js\cite.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\js\del.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\js\element_common.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\js\ins.js" />
+    <Content Include="Content\Scripts\tinymce\plugins\xhtmlxtras\langs\en_dlg.js" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\about.htm" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\anchor.htm" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\charmap.htm" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\color_picker.htm" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\editor_template.js" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\editor_template_src.js" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\image.htm" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\img\colorpicker.jpg" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\img\flash.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\img\icons.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\img\iframe.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\img\pagebreak.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\img\quicktime.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\img\realmedia.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\img\shockwave.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\img\trans.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\img\video.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\img\windowsmedia.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\js\about.js" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\js\anchor.js" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\js\charmap.js" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\js\color_picker.js" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\js\image.js" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\js\link.js" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\js\source_editor.js" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\langs\en.js" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\langs\en_dlg.js" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\link.htm" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\shortcuts.htm" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\default\content.css" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\default\dialog.css" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\default\img\buttons.png" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\default\img\items.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\default\img\menu_arrow.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\default\img\menu_check.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\default\img\progress.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\default\img\tabs.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\default\ui.css" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\highcontrast\content.css" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\highcontrast\dialog.css" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\highcontrast\ui.css" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\o2k7\content.css" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\o2k7\dialog.css" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\o2k7\img\button_bg.png" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\o2k7\img\button_bg_black.png" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\o2k7\img\button_bg_silver.png" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\o2k7\ui.css" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\o2k7\ui_black.css" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\skins\o2k7\ui_silver.css" />
+    <Content Include="Content\Scripts\tinymce\themes\advanced\source_editor.htm" />
+    <Content Include="Content\Scripts\tinymce\themes\simple\editor_template.js" />
+    <Content Include="Content\Scripts\tinymce\themes\simple\editor_template_src.js" />
+    <Content Include="Content\Scripts\tinymce\themes\simple\img\icons.gif" />
+    <Content Include="Content\Scripts\tinymce\themes\simple\langs\en.js" />
+    <Content Include="Content\Scripts\tinymce\themes\simple\skins\default\content.css" />
+    <Content Include="Content\Scripts\tinymce\themes\simple\skins\default\ui.css" />
+    <Content Include="Content\Scripts\tinymce\themes\simple\skins\o2k7\content.css" />
+    <Content Include="Content\Scripts\tinymce\themes\simple\skins\o2k7\img\button_bg.png" />
+    <Content Include="Content\Scripts\tinymce\themes\simple\skins\o2k7\ui.css" />
+    <Content Include="Content\Scripts\tinymce\tiny_mce.js" />
+    <Content Include="Content\Scripts\tinymce\tiny_mce_jquery.js" />
+    <Content Include="Content\Scripts\tinymce\tiny_mce_popup.js" />
+    <Content Include="Content\Scripts\tinymce\tiny_mce_src.js" />
+    <Content Include="Content\Scripts\tinymce\utils\editable_selects.js" />
+    <Content Include="Content\Scripts\tinymce\utils\form_utils.js" />
+    <Content Include="Content\Scripts\tinymce\utils\mctabs.js" />
+    <Content Include="Content\Scripts\tinymce\utils\validate.js" />
+    <Content Include="Raven.Studio.xap" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BindExtensions.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\Raven\DocumentSessionProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Modules\PostModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Database\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Posts\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\DataTables-1.9.2\extras\TableTools\media\images\psd\collection.psd" />
+    <None Include="Content\DataTables-1.9.2\extras\TableTools\media\images\psd\copy document.psd" />
+    <None Include="Content\DataTables-1.9.2\extras\TableTools\media\images\psd\file_types.psd" />
+    <None Include="Content\DataTables-1.9.2\extras\TableTools\media\images\psd\printer.psd" />
+    <None Include="Content\DataTables-1.9.2\media\images\Sorting icons.psd" />
+    <None Include="Content\Scripts\DataTables-1.9.2\extras\AutoFill\media\js\AutoFill.min.js.gz" />
+    <None Include="Content\Scripts\DataTables-1.9.2\extras\ColReorder\media\js\ColReorder.min.js.gz" />
+    <None Include="Content\Scripts\DataTables-1.9.2\extras\ColVis\media\js\ColVis.min.js.gz" />
+    <None Include="Content\Scripts\DataTables-1.9.2\extras\FixedColumns\media\js\FixedColumns.min.js.gz" />
+    <None Include="Content\Scripts\DataTables-1.9.2\extras\Scroller\media\js\dataTables.scroller.min.js.gz" />
+    <None Include="Content\Scripts\DataTables-1.9.2\extras\TableTools\media\js\TableTools.min.js.gz" />
+    <Content Include="Views\Posts\Edit.cshtml" />
+    <Content Include="Views\Posts\EditCreatePost.cshtml" />
+    <Content Include="Views\Posts\Create.cshtml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56256</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+start /MIN xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.11.0\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin"
+start /MIN xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.11.0\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin"</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

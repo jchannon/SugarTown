@@ -1,0 +1,48 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<IEnumerable<SugarTown.Models.Post>>
+
+@{
+    ViewBag.Title = "Posts";
+    Layout = "_Layout";
+}
+
+@section HeadArea{
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/DataTables-1.9.2/media/css/demo_table_jui.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/themes/smoothness/jquery-ui.css")"/>
+
+    <script type="text/javascript" language="javascript" src="@Url.Content("~/Content/Scripts/jquery-1.4.4.min.js")"></script>
+		<script type="text/javascript" language="javascript" src="@Url.Content("~/Content/Scripts/DataTables-1.9.2/media/js/jquery.dataTables.js")"></script>
+		<script type="text/javascript" charset="utf-8">
+		    $(document).ready(function () {
+		        $('#posts').dataTable(
+		            {
+		                "bJQueryUI": true
+		            }
+                );
+		    });
+		</script>
+}
+
+<h1>Posts</h1>
+
+<a href="/posts/create">Create</a>
+               
+<table id="posts">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Date Created</th>
+        </tr>  
+    </thead>
+    <tbody>                                                           
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td><a href="/posts/@item.ID">Edit</a></td>
+                <td>@item.Title</td>
+                <td>@item.DateCreated</td>
+            </tr>
+        }
+    </tbody>
+</table>

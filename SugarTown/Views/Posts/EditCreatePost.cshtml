@@ -1,0 +1,22 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<SugarTown.Models.Post>
+<form method="POST">
+<div>
+    <label for="Title">
+        Title</label>
+    <input type="text" name="Title" value="@Model.Title"/>
+</div>
+<div>
+    <label for="Body">
+        Body</label>
+    <textarea type="text" name="Body">@Model.Body</textarea>
+</div>
+<div>
+    <label for="Tags">
+        Tags</label>
+    @{
+        string Tags = Model.Tags != null ? String.Join(",", Model.Tags) : "";
+    }
+    <input type="text" name="Tags" value="@Tags"/>
+</div>
+<input type="submit" value="Save" />
+</form>

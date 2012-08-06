@@ -1,0 +1,38 @@
+
+/*******************
+* Top bar
+*******************/
+
+#topBar { z-index: 1000000; position: relative; }
+
+#topBar { background: url('../images/nav_bg.jpg') repeat-x;}
+#topBar ul { text-align:left; list-style: none; padding: 0; }
+#topBar ul li { display: inline; position: relative; float: left; }
+#topBar ul li a { display: block; color: #fff; padding: 7px 10px; border-right: 1px solid #6988b4; font-weight: bold; text-decoration: none;}
+#topBar ul .selected a { background: url('nav_bg_hover.jpg') repeat-x; border-right: 1px solid #6988b4; }
+#topBar ul .last { border: 0; }
+#topBar ul .firstselected a {background: #3a6242; border-left: 1px solid #91b096; border-bottom: 1px solid #3a6242;}
+#topBar ul a:hover { background: url('../images/nav_bg_hover.jpg') repeat-x; border-right: 1px solid #6988b4; text-decoration: none; }
+
+#topBar li:hover ul { display: block; }
+
+/* Sub menus */
+#topBar ul ul { display: none; width: 160px; background: 0; position: absolute; left: 0; z-index: 50000; top: auto; margin-top: 0px; }
+#topBar ul ul li { background: #eee; border-right: 1px solid #036; border-bottom: 1px solid #036; border-left: 1px solid #036; margin-top: -1px; }
+#topBar ul ul a { width: 160px; color: #000; display: block; font-weight: normal; border-right: 0; }
+#topBar ul ul a:hover { color: #fff; Background: #6988b4; border-right: 0;}
+
+
+/*******************
+* Main
+*******************/
+
+
+
+
+
+/*******************
+* Footer
+*******************/
+
+#footer li { display: inline; color: #fff; }
