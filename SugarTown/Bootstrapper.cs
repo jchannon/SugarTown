@@ -5,6 +5,7 @@ using System.Web;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
+using Nancy.ViewEngines;
 using Raven.Client;
 using SugarTown.Models.Raven;
 using TinyIoC;
@@ -15,8 +16,7 @@ namespace SugarTown
     {
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
-
-       
+            //container.Register<IViewLocator, SugarTownViewLocator>();
 
             base.ApplicationStartup(container, pipelines);
         }
