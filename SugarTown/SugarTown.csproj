@@ -540,7 +540,6 @@
     </Compile>
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Raven\DocumentSessionProvider.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Modules\PostModule.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -548,6 +547,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Database\IndexDefinitions\TemporaryIndexDefinitionsAsSource\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\_Layout.cshtml" />
