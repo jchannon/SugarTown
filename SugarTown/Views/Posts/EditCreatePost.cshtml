@@ -10,13 +10,14 @@
         Body</label>
     <textarea type="text" name="Body">@Model.Body</textarea>
 </div>
-<div>
-    <label for="Tags">
-        Tags</label>
-    @{
-        string Tags = Model.Tags != null ? String.Join(",", Model.Tags) : "";
-    }
-    <input type="text" name="Tags" value="@Tags"/>
-</div>
+    <div>
+        <label for="Tags">
+            Tags</label>
+        @{
+            string Tags = Model.Tags != null ? String.Join(",", Model.Tags) : "";
+        }
+        <input type="text" name="Tags" value="@Tags"/>
+    </div>
+    <input type="hidden" name="Id" value="@Model.Id" />
 <input type="submit" value="Save" />
 </form>

@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using Nancy.Bootstrapper;
 using Nancy.ViewEngines;
+using Raven.Client;
+using SugarTown.Models.Raven;
+using TinyIoC;
 
 namespace SugarTown
 {
@@ -39,10 +42,20 @@ namespace SugarTown
 
         public IEnumerable<TypeRegistration> TypeRegistrations
         {
-            get { return null; }
+
+            get
+            {
+                //Func<string,IDocumentSession> factory = p => new DocumentSessionProvider().GetSession();
+                //container.Register(factory);
+
+                var fact = new TypeRegistration(typeof(IDocumentSession), typeof(DocumentSessionProvider));
+                return new[] { fact };
+            }
         }
 
     }
+
+    
 
     public class SugarTownViewLocator : IViewLocator
     {

@@ -10,7 +10,6 @@ namespace SugarTown.Modules
 
     public class PostModule : NancyModule
     {
-
         private readonly IDocumentSession DocumentSession;
 
         public PostModule(IDocumentSession documentSession)
@@ -19,38 +18,38 @@ namespace SugarTown.Modules
             DocumentSession = documentSession;
 
             Get["/"] = parameters =>
-                           {
-                               var data = DocumentSession.Query<Post>();
-                               return View["Index", data];
-                           };
+                            {
+                                var data = DocumentSession.Query<Post>();
+                                return View["Index", data];
+                            };
 
             Get[Route.Root().AnyIntAtLeastOnce("id")] = parameters =>
-                                                            {
-                                                                var model = DocumentSession.Load<Post>((int)parameters.id);
-                                                                return View["Edit", model];
-                                                            };
+                            {
+                                var model = DocumentSession.Load<Post>((int)parameters.id);
+                                return View["Edit", model];
+                            };
 
             Post[Route.Root().AnyIntAtLeastOnce("id")] = parameters =>
-                         {
-                             var model = DocumentSession.Load<Post>((int)parameters.id);
-                             this.BindTo(model);
-                             DocumentSession.SaveChanges();
-                             return Response.AsRedirect("/posts");
-                         };
+                            {
+                                var model = DocumentSession.Load<Post>((int)parameters.id);
+                                this.BindTo(model);
+                                DocumentSession.SaveChanges();
+                                return Response.AsRedirect("/posts");
+                            };
 
             Get["/create"] = parameters =>
-                                 {
-                                     var model = new Post();
-                                     return View["Create", model];
-                                 };
+                            {
+                                var model = new Post();
+                                return View["Create", model];
+                            };
 
             Post["/create"] = parameters =>
-            {
-                var model = this.Bind<Post>();
-                DocumentSession.Store(model);
-                DocumentSession.SaveChanges();
-                return Response.AsRedirect("/posts");
-            };
+                            {
+                                var model = this.Bind<Post>();
+                                DocumentSession.Store(model);
+                                DocumentSession.SaveChanges();
+                                return Response.AsRedirect("/posts");
+                            };
         }
     }
 
