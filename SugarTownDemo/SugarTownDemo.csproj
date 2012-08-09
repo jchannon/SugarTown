@@ -76,17 +76,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Modules\HomeModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SugarTown\SugarTown.csproj">
-      <Project>{95708FD6-C08C-4FC0-9D0D-BED6B233DF9C}</Project>
-      <Name>SugarTown</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Data\Database\Data" />
@@ -110,6 +105,12 @@
   <ItemGroup>
     <Folder Include="App_Data\Database\IndexDefinitions\TemporaryIndexDefinitionsAsSource\" />
     <Folder Include="App_Data\Database\temp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SugarTown\SugarTown.csproj">
+      <Project>{95708FD6-C08C-4FC0-9D0D-BED6B233DF9C}</Project>
+      <Name>SugarTown</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

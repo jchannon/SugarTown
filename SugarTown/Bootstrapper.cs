@@ -38,7 +38,7 @@ namespace SugarTown
             //container.Register(docSession).AsSingleton();
             Func<TinyIoCContainer, NamedParameterOverloads, IDocumentSession> factory = (ioccontainer, namedparams) => new DocumentSessionProvider().GetSession();
             container.Register(factory);     
-
+            
             base.ConfigureRequestContainer(container, context);
 
 

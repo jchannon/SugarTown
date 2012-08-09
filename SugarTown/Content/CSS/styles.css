@@ -2,7 +2,7 @@
 * Layout
 *******************/
 
-#container { width: 959px; margin: 0 auto; position: relative; background: url('../images/shadow_sides.png') repeat-y left; padding: 10px 14px;}
+#container { width: 959px; margin: 0 auto; position: relative; background: url('../Images/shadow_sides.png') repeat-y left; padding: 10px 14px;}
 
 
 /*******************
@@ -16,12 +16,12 @@
 /*******************
 * Top bar
 *******************/
-#topBar { width: 957px; background: #036; color: #fff; background: url('../images/nav_bg.jpg') repeat-x; border-left:solid 1px #033882; border-bottom:solid 1px #033882; border-right:solid 1px #033882;}
+#topBar { width: 957px; background: #036; color: #fff; background: url('../Images/nav_bg.jpg') repeat-x; border-left:solid 1px #033882; border-bottom:solid 1px #033882; border-right:solid 1px #033882;}
 
 /***********************
 Welcome Bar
 ***********************/
-#welcomeBar { height: 15px; padding: 7px; background: url('../images/ticker_bg.jpg') repeat-x; border-left: 1px solid #b1b1b1; border-bottom: 1px solid #b1b1b1; border-right: 1px solid #b1b1b1;}
+#welcomeBar { height: 15px; padding: 7px; background: url('../Images/ticker_bg.jpg') repeat-x; border-left: 1px solid #b1b1b1; border-bottom: 1px solid #b1b1b1; border-right: 1px solid #b1b1b1;}
 
 #welcomeBar .welcome ul { position: absolute; top: 0; left: 0; }
 #welcomeBar .welcome li { display: inline; }

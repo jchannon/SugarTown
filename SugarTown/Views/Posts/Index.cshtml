@@ -1,4 +1,4 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<IEnumerable<SugarTown.Models.Post>>
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<System.Collections.Generic.IEnumerable<SugarTown.Models.Post>>
 
 @{
     ViewBag.Title = "Posts";
@@ -7,11 +7,11 @@
 
 @section HeadArea{
 
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/DataTables-1.9.2/media/css/demo_table_jui.css")"/>
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/themes/smoothness/jquery-ui.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/SugarTown/Content/DataTables192/media/css/demo_table_jui.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/SugarTown/Content/themes/smoothness/jquery-ui.css")"/>
 
-    <script type="text/javascript" language="javascript" src="@Url.Content("~/Content/Scripts/jquery-1.4.4.min.js")"></script>
-		<script type="text/javascript" language="javascript" src="@Url.Content("~/Content/Scripts/DataTables-1.9.2/media/js/jquery.dataTables.js")"></script>
+    <script type="text/javascript" language="javascript" src="@Url.Content("~/SugarTown/Content/Scripts/jquery-1.4.4.min.js")"></script>
+		<script type="text/javascript" language="javascript" src="@Url.Content("~/SugarTown/Content/Scripts/DataTables192/media/js/jquery.dataTables.js")"></script>
 		<script type="text/javascript" charset="utf-8">
 		    $(document).ready(function () {
 		        $('#posts').dataTable(

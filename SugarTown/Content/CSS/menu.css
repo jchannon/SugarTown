@@ -5,14 +5,14 @@
 
 #topBar { z-index: 1000000; position: relative; }
 
-#topBar { background: url('../images/nav_bg.jpg') repeat-x;}
+#topBar { background: url('../Images/nav_bg.jpg') repeat-x;}
 #topBar ul { text-align:left; list-style: none; padding: 0; }
 #topBar ul li { display: inline; position: relative; float: left; }
 #topBar ul li a { display: block; color: #fff; padding: 7px 10px; border-right: 1px solid #6988b4; font-weight: bold; text-decoration: none;}
 #topBar ul .selected a { background: url('nav_bg_hover.jpg') repeat-x; border-right: 1px solid #6988b4; }
 #topBar ul .last { border: 0; }
 #topBar ul .firstselected a {background: #3a6242; border-left: 1px solid #91b096; border-bottom: 1px solid #3a6242;}
-#topBar ul a:hover { background: url('../images/nav_bg_hover.jpg') repeat-x; border-right: 1px solid #6988b4; text-decoration: none; }
+#topBar ul a:hover { background: url('../Images/nav_bg_hover.jpg') repeat-x; border-right: 1px solid #6988b4; text-decoration: none; }
 
 #topBar li:hover ul { display: block; }
 

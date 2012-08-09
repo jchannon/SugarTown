@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Web;
+using Nancy;
 using Nancy.Bootstrapper;
+using Nancy.ModelBinding;
 using Nancy.ViewEngines;
 using Raven.Client;
 using SugarTown.Models.Raven;
@@ -13,11 +15,21 @@ namespace SugarTown
 {
     public class StartUp : IStartup
     {
-        private readonly IViewLocator viewLocator;
-        public StartUp(IViewLocator viewLocator)
+        private readonly SugarTownConfiguration diagnosticsConfiguration;
+        private readonly IRootPathProvider rootPathProvider;
+        private readonly IEnumerable<ISerializer> serializers;
+        private readonly NancyInternalConfiguration configuration;
+        private readonly IModelBinderLocator modelBinderLocator;
+
+        public StartUp(SugarTownConfiguration diagnosticsConfiguration, IRootPathProvider rootPathProvider, IEnumerable<ISerializer> serializers, NancyInternalConfiguration configuration, IModelBinderLocator modelBinderLocator)
         {
-            this.viewLocator = viewLocator;
+            this.diagnosticsConfiguration = diagnosticsConfiguration;
+            this.rootPathProvider = rootPathProvider;
+            this.serializers = serializers;
+            this.configuration = configuration;
+            this.modelBinderLocator = modelBinderLocator;
         }
+
 
         public IEnumerable<CollectionTypeRegistration> CollectionTypeRegistrations
         {
@@ -26,36 +38,31 @@ namespace SugarTown
 
         public void Initialize(IPipelines pipelines)
         {
-
+            SugarTown.Enable(diagnosticsConfiguration, pipelines, rootPathProvider, serializers, configuration, modelBinderLocator);
         }
 
         public IEnumerable<InstanceRegistration> InstanceRegistrations
         {
             get
             {
-                var impl = new SugarTownViewLocator(viewLocator);
-                var test = new InstanceRegistration(typeof(IViewLocator), impl);
+                //var impl = new SugarTownViewLocator(viewLocator);
+                //var test = new InstanceRegistration(typeof(IViewLocator), impl);
 
-                return new[] { test };
+                //return new[] { test };
+
+                return null;
             }
         }
 
         public IEnumerable<TypeRegistration> TypeRegistrations
         {
 
-            get
-            {
-                //Func<string,IDocumentSession> factory = p => new DocumentSessionProvider().GetSession();
-                //container.Register(factory);
-
-                var fact = new TypeRegistration(typeof(IDocumentSession), typeof(DocumentSessionProvider));
-                return new[] { fact };
-            }
+            get { return null; }
         }
 
     }
 
-    
+
 
     public class SugarTownViewLocator : IViewLocator
     {

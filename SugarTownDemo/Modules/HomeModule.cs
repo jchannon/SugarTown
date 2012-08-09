@@ -4,7 +4,7 @@ namespace SugarTownDemo.Modules
 {
     public class HomeModule : NancyModule
     {
-         public HomeModule()
+         public HomeModule() : base("/show")
          {
              Get["/"] = parameters => View["Index"];
          }
