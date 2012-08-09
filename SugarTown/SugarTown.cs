@@ -77,32 +77,80 @@ namespace SugarTown
                                 Path.GetFileName(ctx.Request.Url.Path));
                         }
 
-                        var renderer = new SugarTownDiagnosticsViewRenderer(ctx);
+                        //var renderer = new SugarTownDiagnosticsViewRenderer(ctx);
 
-                        IEnumerable<Post> model = new[]
-                                        {
-                                            new Post()
-                                                {
-                                                    Body = "<h1>Hi</hi>",
-                                                    DateCreated = DateTime.Now,
-                                                    Id = "/posts/3",
-                                                    Tags = new[] {"123,456"},
-                                                    Title = "Testing"
-                                                },
-                                                 new Post()
-                                                {
-                                                    Body = "<h1>Hi 2</hi>",
-                                                    DateCreated = DateTime.Now,
-                                                    Id = "/posts/32",
-                                                    Tags = new[] {"789"},
-                                                    Title = "Testing 2"
-                                                }
-                                        };
+                        //IEnumerable<Post> model = new[]
+                        //                {
+                        //                    new Post()
+                        //                        {
+                        //                            Body = "<h1>Hi</hi>",
+                        //                            DateCreated = DateTime.Now,
+                        //                            Id = "/posts/3",
+                        //                            Tags = new[] {"123,456"},
+                        //                            Title = "Testing"
+                        //                        },
+                        //                         new Post()
+                        //                        {
+                        //                            Body = "<h1>Hi 2</hi>",
+                        //                            DateCreated = DateTime.Now,
+                        //                            Id = "/posts/32",
+                        //                            Tags = new[] {"789"},
+                        //                            Title = "Testing 2"
+                        //                        }
+                        //                };
 
-                        return renderer["Index", model];
+                        //return renderer["Index", model];
+
+                        return ShowMeTheSugar(ctx, diagnosticsRouteResolver, diagnosticsConfiguration);
 
                     }));
 
+        }
+
+        private static Response ShowMeTheSugar(NancyContext ctx, IRouteResolver routeResolver, SugarTownConfiguration diagnosticsConfiguration)
+        {
+            var resolveResult = routeResolver.Resolve(ctx);
+
+            ctx.Parameters = resolveResult.Item2;
+            var resolveResultPreReq = resolveResult.Item3;
+            var resolveResultPostReq = resolveResult.Item4;
+
+            ExecuteRoutePreReq(ctx, resolveResultPreReq);
+
+            if (ctx.Response == null)
+            {
+                ctx.Response = resolveResult.Item1.Invoke(resolveResult.Item2);
+            }
+
+            if (ctx.Request.Method.ToUpperInvariant() == "HEAD")
+            {
+                ctx.Response = new HeadResponse(ctx.Response);
+            }
+
+            if (resolveResultPostReq != null)
+            {
+                resolveResultPostReq.Invoke(ctx);
+            }
+
+
+
+            // If we duplicate the context this makes more sense :)
+            return ctx.Response;
+        }
+
+        private static void ExecuteRoutePreReq(NancyContext context, Func<NancyContext, Response> resolveResultPreReq)
+        {
+            if (resolveResultPreReq == null)
+            {
+                return;
+            }
+
+            var resolveResultPreReqResponse = resolveResultPreReq.Invoke(context);
+
+            if (resolveResultPreReqResponse != null)
+            {
+                context.Response = resolveResultPreReqResponse;
+            }
         }
     }
 }
@@ -260,7 +308,13 @@ namespace SugarTown
                 "SugarTown/Views",
                 name,
                 "cshtml",
-                () => new StreamReader(bodyStream));
+                () =>
+                {
+                    //StreamReader reader = new StreamReader(bodyStream);
+                    //string text = reader.ReadToEnd();
+                    return new StreamReader(bodyStream);
+                }
+                );
         }
 
         internal class SugarTownDiagnosticsViewResolver : IViewResolver

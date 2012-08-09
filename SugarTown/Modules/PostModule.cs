@@ -1,27 +1,28 @@
-﻿using System;
+﻿using SugarTown.Models;
 using Nancy.ModelBinding;
 using Nancy.RouteHelpers;
 using Raven.Client;
+using Nancy;
+using System.Collections.Generic;
 
 namespace SugarTown.Modules
 {
-    using Nancy;
-    using Models;
+
 
     public class PostModule : NancyModule
     {
         private readonly IDocumentSession DocumentSession;
 
         public PostModule(IDocumentSession documentSession)
-            : base("/posts")
+            : base("/SugarTown/posts")
         {
             DocumentSession = documentSession;
 
             Get["/"] = parameters =>
-                            {
-                                var data = DocumentSession.Query<Post>();
-                                return View["Index", data];
-                            };
+                           {
+                               IEnumerable<Post> data = DocumentSession.Query<Post>();
+                               return View["Index", data];
+                           };
 
             Get[Route.Root().AnyIntAtLeastOnce("id")] = parameters =>
                             {
@@ -50,6 +51,11 @@ namespace SugarTown.Modules
                                 DocumentSession.SaveChanges();
                                 return Response.AsRedirect("/posts");
                             };
+        }
+
+        public new SugarTownDiagnosticsViewRenderer View
+        {
+            get { return new SugarTownDiagnosticsViewRenderer(this.Context); }
         }
     }
 
