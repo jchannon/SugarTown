@@ -77,6 +77,8 @@ namespace SugarTown
                                 Path.GetFileName(ctx.Request.Url.Path));
                         }
 
+                        
+
                         //var renderer = new SugarTownDiagnosticsViewRenderer(ctx);
 
                         //IEnumerable<Post> model = new[]
@@ -335,5 +337,10 @@ namespace SugarTown
                 return GetViewLocationResult(fullName, stream);
             }
         }
+    }
+
+    public interface ISugarTownSettings
+    {
+       <string, string> Settings { get; set; }
     }
 }

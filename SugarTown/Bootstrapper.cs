@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using Nancy;
@@ -17,7 +18,6 @@ namespace SugarTown
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
             //container.Register<IViewLocator, SugarTownViewLocator>();
-
             base.ApplicationStartup(container, pipelines);
         }
 
@@ -33,15 +33,17 @@ namespace SugarTown
         protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
         {
 
-            //var docSession = new DocumentSessionProvider();
-
-            //container.Register(docSession).AsSingleton();
-            Func<TinyIoCContainer, NamedParameterOverloads, IDocumentSession> factory = (ioccontainer, namedparams) => new DocumentSessionProvider().GetSession();
-            container.Register(factory);     
             
-            base.ConfigureRequestContainer(container, context);
+            //Func<TinyIoCContainer, NamedParameterOverloads, IDocumentSession> factory = (ioccontainer, namedparams) => new DocumentSessionProvider().GetSession();
+            //container.Register(factory);
 
+            base.ConfigureRequestContainer(container, context);
+            Func<TinyIoCContainer, NamedParameterOverloads, IDocumentSession> factory = (ioccontainer, namedparams) => new DocumentSessionProvider().GetSession();
+            container.Register(factory);
 
         }
     }
+
+   
+
 }

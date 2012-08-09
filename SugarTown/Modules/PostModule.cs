@@ -4,6 +4,7 @@ using Nancy.RouteHelpers;
 using Raven.Client;
 using Nancy;
 using System.Collections.Generic;
+using SugarTown.Models.Raven;
 
 namespace SugarTown.Modules
 {
@@ -13,10 +14,11 @@ namespace SugarTown.Modules
     {
         private readonly IDocumentSession DocumentSession;
 
-        public PostModule(IDocumentSession documentSession)
+        public PostModule()
             : base("/SugarTown/posts")
         {
-            DocumentSession = documentSession;
+            DocumentSession = new DocumentSessionProvider().GetSession();
+
 
             Get["/"] = parameters =>
                            {

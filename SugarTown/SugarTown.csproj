@@ -534,7 +534,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BindExtensions.cs" />
-    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
