@@ -40,7 +40,7 @@ namespace SugarTownDemo
 
     public class SugarTownSettings : ISugarTownSettings
     {
-        public static Dictionary<string, string> Settings
+        public  Dictionary<string, string> Settings
         {
             get;
             set;

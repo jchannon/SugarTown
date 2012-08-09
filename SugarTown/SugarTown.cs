@@ -341,6 +341,6 @@ namespace SugarTown
 
     public interface ISugarTownSettings
     {
-       <string, string> Settings { get; set; }
+       Dictionary<string, string> Settings { get; set; }
     }
 }
