@@ -13,5 +13,5 @@ Please check out the demo projects ![screenshot][3]
 
   [1]: http://nancyfx.org/
   [2]: http://www.sinatrarb.com/
-  [3]: http://imgur.com/h7e1g
+  [3]: http://i.imgur.com/h7e1g.jpg
   <sub>* Sugar Town & Something Stupid</sub>
