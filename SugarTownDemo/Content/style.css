@@ -1,0 +1,295 @@
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 3.0 License
+
+Name       : Axiom
+Description: A two-column, fixed-width design with a bright color scheme.
+Version    : 1.0
+Released   : 20120729
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: underline;
+	color: #A54545;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+body {
+	color: #3D3D3D;
+	background: #F4F5F5;
+	line-height: 2em;
+	font-size: 11.5pt;
+	text-shadow: -1px -1px 0px #ffffff;
+}
+
+body,input {
+	font-family: "Open Sans", sans-serif;
+}
+
+br.clearfix {
+	clear: both;
+}
+
+strong {
+	color: #000;
+}
+
+h1,h2,h3,h4 {
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	font-weight: normal;
+}
+
+a {
+	color: #1F1F1F;
+}
+
+h2 {
+	font-size: 1.75em;
+}
+
+h2,h3,h4 {
+	margin-bottom: 1em;
+	color: #000;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+h4 {
+	font-size: 1.25em;
+}
+
+img.alignleft {
+	float: left;
+	margin: 5px 40px 40px 0;
+}
+
+img.aligntop {
+	margin: 5px 0 20px 0;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+ul {
+	margin-bottom: 1.5em;
+}
+
+ul h4 {
+	margin-bottom: 0.35em;
+}
+
+.image {
+	border-radius: 5px;
+	border: solid 5px white;
+	box-shadow: 0px 0px 0px 1px #D4D5D5, 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.box {
+}
+
+.col1 {
+	float: left;
+	width: 440px;
+}
+
+.col2 {
+	margin: 0 0 0 465px;
+	width: 440px;
+}
+
+#content {
+	color: #3D3D3D;
+	padding: 35px;
+	width: 910px;
+}
+
+#footer {
+	padding: 60px 0 110px 0;
+	text-align: center;
+	color: #848585;
+}
+
+#footer a {
+	color: #848585;
+}
+
+#header {
+	position: relative;
+	padding: 35px;
+	width: 910px;
+	height: 100px;
+}
+
+#logo {
+	height: 120px;
+	left: 35px;
+	line-height: 120px;
+	position: absolute;
+	top: 35px;
+}
+
+#logo a {
+	color: #000;
+	text-decoration: none;
+}
+
+#logo h1 {
+	font-size: 2.5em;
+}
+
+#menu {
+	right: 0;
+	line-height: 60px;
+	height: 60px;
+	position: absolute;
+	top: 68px;
+	border-radius: 5px;
+	box-shadow: inset 0px 0px 0px 1px #872424, inset 0px 2px 0px 0px #F79494, inset 0px 0px 0px 2px #E78484;
+	background: #A74444;
+	background-image: linear-gradient(top, #A74444, #C76464);
+	background-image: -moz-linear-gradient(top, #A74444, #C76464);
+	background-image: -webkit-linear-gradient(top, #A74444, #C76464);
+	background-image: -o-linear-gradient(top, #A74444, #C76464);
+	background-image: -ms-linear-gradient(top, #A74444, #C76464);
+	text-shadow: -1px -1px 0px rgba(0,0,0,0.5);
+}
+
+#menu a {
+	color: #1D1D1D;
+	text-transform: uppercase;
+	font-size: 1.1em;
+	letter-spacing: -1px;
+	text-decoration: none;
+	color: #fff;
+}
+
+#menu ul {
+	list-style: none;
+	padding: 0 25px 0 25px;
+}
+
+#menu ul li {
+	padding: 0 15px 0 15px;
+	display: inline;
+}
+
+#inner {
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	border: solid 1px #D4D5D5;
+}
+
+#page {
+	position: relative;
+	margin: 0 0 0 0;
+	padding: 0;
+	width: 980px;
+}
+
+#page .section-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+#page .section-list li {
+	padding: 20px 0 20px 0;
+	clear: both;
+}
+
+#page ul {
+	list-style: none;
+}
+
+#page ul li {
+	padding: 10px 0 10px 0;
+	border-top: solid 1px #D1D1D1;
+}
+
+#page ul li.first {
+	border-top: 0;
+	padding-top: 0;
+}
+
+#page-bottom {
+	width: 910px;
+	margin: 35px 0 0 0;
+	color: #EAD2D2;
+	padding: 45px 35px 25px 35px;
+	position: relative;
+	border-radius: 5px;
+	box-shadow: inset 0px 0px 0px 1px #872424, inset 0px 2px 0px 0px #F79494, inset 0px 0px 0px 2px #E78484;
+	background: #A74444;
+	background-image: linear-gradient(top, #A74444, #C76464);
+	background-image: -moz-linear-gradient(top, #A74444, #C76464);
+	background-image: -webkit-linear-gradient(top, #A74444, #C76464);
+	background-image: -o-linear-gradient(top, #A74444, #C76464);
+	background-image: -ms-linear-gradient(top, #A74444, #C76464);
+	text-shadow: -1px -1px 0px rgba(0,0,0,0.5);
+}
+
+#page-bottom a {
+	color: #F4E9E9;
+}
+
+#page-bottom h2, #page-bottom h3, #page-bottom h4 {
+	color: #FFF;
+}
+
+#page-bottom ul {
+	list-style: none;
+}
+
+#page-bottom ul li {
+	padding: 10px 0 10px 0;
+	border-top: solid 1px #B76666;
+}
+
+#page-bottom ul li.first {
+	border-top: 0;
+	padding-top: 0;
+}
+
+#page-bottom-content {
+	width: 910px;
+}
+
+#search input.form-submit {
+	padding: 5px;
+	border: 0;
+	color: #FFF;
+	margin-left: 1em;
+	background: #A54545;
+}
+
+#search input.form-text {
+	padding: 5px;
+	border: solid 1px #C8C9C9;
+}
+
+#splash {
+	margin: 0;
+	width: 910px;
+	height: 260px;
+	position: relative;
+	padding: 35px;
+}
+
+#wrapper {
+	margin: 20px auto 0 auto;
+	width: 980px;
+	position: relative;
+}

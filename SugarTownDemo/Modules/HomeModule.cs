@@ -16,12 +16,17 @@ namespace SugarTownDemo.Modules
 
             Get["/"] = parameters =>
                            {
-                               List<Post> model = _blogRepository.GetBlogPosts(this.Context.Request.Url.ToString());
-
-                               return Negotiate
-                                   .WithModel(model)
-                                   .WithView("Index");
+                               return View["Index"];
                            };
+
+            Get["/blog"] = parameters =>
+                               {
+                                   List<Post> model = _blogRepository.GetBlogPosts(this.Context.Request.Url.ToString().Substring(0, this.Context.Request.Url.ToString().LastIndexOf("/")));
+
+                                   return Negotiate
+                                       .WithModel(model)
+                                       .WithView("Blog");
+                               };
         }
     }
 

@@ -1,0 +1,90 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 3.0 License
+
+Name       : SugarTown
+Description: A two-column, fixed-width design with a bright color scheme.
+Version    : 1.0
+Released   : 20120729
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title>SugarTown Demo</title>
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/style.css")" />
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<div id="logo">
+					<h1><a href="#">SugarTown</a></h1>
+				</div>
+				<div id="menu">
+					<ul>
+						<li class="first current_page_item"><a href="/">Homepage</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="#">Photos</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Links</a></li>
+						<li class="last"><a href="#">Contact</a></li>
+					</ul>
+					<br class="clearfix" />
+				</div>
+			</div>
+			<div id="inner">
+				<div id="splash">
+					<img src="@Url.Content("~/Content/images/banner.jpg")" width="900" height="260" alt="" class="image" />
+				</div>
+				<div id="page">
+					<div id="content">
+						<div class="box">
+							<h2>Welcome to SugarTown</h2>
+							
+							@RenderBody()
+							<br class="clearfix" />
+						</div>
+						<div class="box col1">
+							<h3>Posuere cras</h3>
+							<p>
+								Diam velit rutrum iaculis molestie massa dolor tortor. Imperdiet fringilla condimentum accumsan accumsan.
+							</p>
+							<ul class="list">
+								<li class="first"><a href="#">Semper lacinia nisl quisque</a></li>
+								<li><a href="#">Vulputate consectetur consequat augue</a></li>
+								<li><a href="#">Montes odio nulla lacus</a></li>
+								<li><a href="#">Natoque dolor curabitur augue</a></li>
+								<li class="last"><a href="#">Gravida imperdiet neque placerat</a></li>
+							</ul>
+						</div>
+						<div class="box col2">
+							<h3>Neque varius</h3>
+							<img class="image aligntop" src="@Url.Content("~/Content/images/pic2.jpg")" width="430" height="155" alt="" />
+							<p>
+								Rutrum quis ultricies nullam at purus accumsan penatibus. Malesuada penatibus non nulla quam rutrum. Imperdiet integer nascetur cursus. Quis felis adipiscing leo penatibus interdum ac fusce.
+							</p>
+						</div>
+						<br class="clearfix" />
+					</div>
+				</div>
+			</div>
+			<div id="page-bottom">
+				<div id="page-bottom-content">
+					<h3>Blandit sed luctus</h3>
+					<p>
+						Cras luctus mi posuere rutrum. Elementum ipsum semper nulla iaculis adipiscing leo ultrices. Libero erat vivamus sagittis volutpat aenean elit. Semper diam purus justo commodo amet. Laoreet dignissim nisl varius. Tempor consequat ridiculus porta proin convallis praesent curabitur. Ligula nisl facilisis lectus. Euismod lobortis orci ridiculus scelerisque. Phasellus tortor morbi sed felis proin. Elit non risus consectetur primis. Sapien libero pharetra mattis nisl praesent.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			&copy; 2012 Untitled | Design by <a href="http://www.freecsstemplates.org/">FCT</a> | Images by <a href="http://fotogrph.com/">Fotogrph</a>
+		</div>
+	</body>
+</html>

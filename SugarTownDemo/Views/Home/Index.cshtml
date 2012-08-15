@@ -1,21 +1,9 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<System.Collections.Generic.IEnumerable<dynamic>>
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+              
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
+<img class="image alignleft" src="@Url.Content("~/Content/images/pic1.jpg")" width="215" height="150" alt="" />
+<p> Welcome to the <strong>SugarTown Demo</strong> website. It is used to illustrate an existing website that you want to put a blog built into it.</p>
 
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <title>title</title>
-    </head>
-    <body>
-        <div>
-            <h1>Hi there!</h1>
-            @foreach(var post in Model)
-            {
-                @Html.Raw(post.Body)
-            }
-        </div>
-    </body>
-</html>
+       
