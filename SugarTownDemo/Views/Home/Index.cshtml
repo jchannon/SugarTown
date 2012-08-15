@@ -1,4 +1,5 @@
-﻿@{
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<System.Collections.Generic.IEnumerable<dynamic>>
+@{
     Layout = null;
 }
 
@@ -11,6 +12,10 @@
     <body>
         <div>
             <h1>Hi there!</h1>
+            @foreach(var post in Model)
+            {
+                @Html.Raw(post.Body)
+            }
         </div>
     </body>
 </html>

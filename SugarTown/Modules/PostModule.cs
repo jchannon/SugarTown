@@ -1,4 +1,6 @@
-﻿using SugarTown.Models;
+﻿using System.Linq;
+using Nancy.Responses.Negotiation;
+using SugarTown.Models;
 using Nancy.ModelBinding;
 using Nancy.RouteHelpers;
 using Raven.Client;
@@ -8,22 +10,30 @@ using SugarTown.Models.Raven;
 
 namespace SugarTown.Modules
 {
+    public class RatPack
+    {
+        public string FirstName { get; set; }
+    }
 
-
-    public class PostModule : NancyModule
+    public class PostModule : SugarTownModule
     {
         private readonly IDocumentSession DocumentSession;
 
         public PostModule()
-            : base("/SugarTown/posts")
+            : base("/posts")
         {
             DocumentSession = new DocumentSessionProvider().GetSession();
 
 
             Get["/"] = parameters =>
                            {
-                               IEnumerable<Post> data = DocumentSession.Query<Post>();
-                               return View["Index", data];
+                               IEnumerable<Post> data = DocumentSession.Query<Post>().ToList();
+                               
+                               return Negotiate
+                                   .WithModel(data)
+                                   .WithView("Index");
+
+                                //return View["Index", data];
                            };
 
             Get[Route.Root().AnyIntAtLeastOnce("id")] = parameters =>
@@ -53,12 +63,15 @@ namespace SugarTown.Modules
                                 DocumentSession.SaveChanges();
                                 return Response.AsRedirect("/posts");
                             };
+
+            Get["/rawdata"] = parameters =>
+                            {
+                                IEnumerable<Post> data = DocumentSession.Query<Post>();
+                                return View["Raw", data];
+                            };
         }
 
-        public new SugarTownDiagnosticsViewRenderer View
-        {
-            get { return new SugarTownDiagnosticsViewRenderer(this.Context); }
-        }
+
     }
 
 }

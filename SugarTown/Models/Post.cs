@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace SugarTown.Models
 {
@@ -9,6 +10,6 @@ namespace SugarTown.Models
         public string Title { get; set; }
         public DateTime DateCreated { get; set; }
         public string Body { get; set; }
-        public IEnumerable<string> Tags { get; set; }
+        public List<string> Tags { get; set; }
     }
 }
