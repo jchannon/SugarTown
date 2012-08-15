@@ -41,7 +41,7 @@ namespace SugarTown.Modules
                                 Post model = DocumentSession.Load<Post>((int)parameters.id);
                                 return Negotiate
                                    .WithModel(model)
-                                   .WithView("EDit");
+                                   .WithView("Edit");
                             };
 
             Post[Route.Root().AnyIntAtLeastOnce("id")] = parameters =>
@@ -55,7 +55,9 @@ namespace SugarTown.Modules
             Get["/create"] = parameters =>
                             {
                                 var model = new Post();
-                                return View["Create", model];
+                                return Negotiate
+                                   .WithModel(model)
+                                   .WithView("Create");
                             };
 
             Post["/create"] = parameters =>
@@ -66,11 +68,6 @@ namespace SugarTown.Modules
                                 return Response.AsRedirect("/sugartown/posts");
                             };
 
-            Get["/rawdata"] = parameters =>
-                            {
-                                IEnumerable<Post> data = DocumentSession.Query<Post>();
-                                return View["Raw", data];
-                            };
         }
 
 
