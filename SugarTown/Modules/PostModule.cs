@@ -10,10 +10,6 @@ using SugarTown.Models.Raven;
 
 namespace SugarTown.Modules
 {
-    public class RatPack
-    {
-        public string FirstName { get; set; }
-    }
 
     public class PostModule : SugarTownModule
     {
