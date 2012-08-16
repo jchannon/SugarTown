@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Nancy;
+using Nancy.RouteHelpers;
 using RestSharp;
 using SugarTown.Models;
 using SugarTownDemo.Model;
@@ -21,12 +22,29 @@ namespace SugarTownDemo.Modules
 
             Get["/blog"] = parameters =>
                                {
-                                   List<Post> model = _blogRepository.GetBlogPosts(this.Context.Request.Url.ToString().Substring(0, this.Context.Request.Url.ToString().LastIndexOf("/")));
+                                   string domainUrl = this.Context.Request.Url.Scheme + "://" + this.Context.Request.Url.HostName +
+                                                     ( (!this.Context.Request.Url.Port.HasValue) ?
+                string.Empty :
+                string.Concat(":", this.Context.Request.Url.Port.Value));
 
-                                   return Negotiate
-                                       .WithModel(model)
-                                       .WithView("Blog");
+                                   List<Post> model = _blogRepository.GetBlogUrlFriendlyPosts(domainUrl);
+
+                                   return View["Blog", model];
                                };
+
+            Get[Route.Root().Exact("blog", "blog").And().AnyStringAtLeastOnce("title")] = parameters =>
+                                {
+                                    string domainUrl = this.Context.Request.Url.Scheme + "://" + this.Context.Request.Url.HostName +
+                                                       ((!this.Context.Request.Url.Port.HasValue) ?
+                  string.Empty :
+                  string.Concat(":", this.Context.Request.Url.Port.Value));
+                                    string title = (string) parameters.title;
+                                    
+                                    
+                                    Post model = _blogRepository.GetPost(title, domainUrl);
+
+                                    return View["BlogDetail", model];
+                                };
         }
     }
 

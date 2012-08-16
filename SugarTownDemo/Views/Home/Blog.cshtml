@@ -9,6 +9,6 @@
 
      @foreach (var post in Model)
      {
-         <h3>@post.Title</h3>
+         <h3><a href="@Url.Content("~/blog/")@post.Slug">@post.Title</a></h3>
           @Html.Raw(post.Body)
      }

@@ -23,13 +23,13 @@ namespace SugarTown.Modules
 
             Get["/"] = parameters =>
                            {
-                               IEnumerable<Post> data = DocumentSession.Query<Post>().ToList();
-                               
+                               IEnumerable<Post> data = DocumentSession.Query<Post>()
+                                                        .Customize(x => x.WaitForNonStaleResultsAsOfNow())
+                                                        .ToList();
+
                                return Negotiate
                                    .WithModel(data)
                                    .WithView("Index");
-
-                                //return View["Index", data];
                            };
 
             Get[Route.Root().AnyIntAtLeastOnce("id")] = parameters =>
@@ -51,9 +51,7 @@ namespace SugarTown.Modules
             Get["/create"] = parameters =>
                             {
                                 var model = new Post();
-                                return Negotiate
-                                   .WithModel(model)
-                                   .WithView("Create");
+                                return View["Create", model];
                             };
 
             Post["/create"] = parameters =>
@@ -63,6 +61,14 @@ namespace SugarTown.Modules
                                 DocumentSession.SaveChanges();
                                 return Response.AsRedirect("/sugartown/posts");
                             };
+
+            Get[Route.Root().AnyStringAtLeastOnce("title")] = parameters =>
+                                                           {
+                                                               string title = ((string)parameters.title).Replace("-", " ");
+                                                               Post model = DocumentSession.Query<Post>().FirstOrDefault(x => x.Title == title);
+
+                                                               return Negotiate.WithModel(model);
+                                                           };
 
         }
 

@@ -5,6 +5,7 @@ namespace SugarTownDemo.Model
 {
     public interface IBlogRepository
     {
-        List<Post> GetBlogPosts(string URL);
+        List<Post> GetBlogUrlFriendlyPosts(string URL);
+        Post GetPost(string title, string url);
     }
 }
