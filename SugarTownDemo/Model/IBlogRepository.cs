@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using SugarTown.Infrastructure;
 using SugarTown.Models;
 
 namespace SugarTownDemo.Model
 {
     public interface IBlogRepository
     {
-        List<Post> GetBlogUrlFriendlyPosts(string URL);
+        Paged<Post> GetBlogUrlFriendlyPosts(string URL, int pageNumber);
         Post GetPost(string title, string url);
+        Paged<Post> GetPostsWithTags(string domain, string tag, int pageNumber);
     }
 }

@@ -1,4 +1,7 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<System.Collections.Generic.IEnumerable<dynamic>>
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<SugarTown.Infrastructure.Paged<SugarTown.Models.Post>>
+              
+@using SugarTownDemo.Infrastructure;
+
 
 @{
     ViewBag.Title = "title";
@@ -7,8 +10,24 @@
 
 <p>This is the blog page and the below content is all coming from <strong>SugarTown</strong></p>
 
-     @foreach (var post in Model)
+     @foreach (var post in Model.Data)
      {
          <h3><a href="@Url.Content("~/blog/")@post.Slug">@post.Title</a></h3>
           @Html.Raw(post.Body)
+          @if (post.Body.EndsWith("..."))
+           {
+               <a href="@Url.Content("~/blog/")@post.Slug">Read More</a>
+           }
      }
+
+     
+@if (!this.Url.RenderContext.Context.Request.Path.Contains("tag"))
+{
+    @Html.PagedListPager(Model, page => "/blog/page/" + page)
+}
+else
+{
+    string tag = this.Url.RenderContext.Context.Request.Path.Split('/')[3];
+    @Html.Raw(tag)
+    @Html.PagedListPager(Model, page => "/blog/tag/"+@tag+"/page/" + page)
+}

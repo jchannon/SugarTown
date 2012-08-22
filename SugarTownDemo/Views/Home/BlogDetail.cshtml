@@ -8,3 +8,13 @@
 <h2>@Model.Title</h2>
 
 @Html.Raw(@Model.Body)
+
+@if (Model.Tags != null)
+{
+<p>
+@foreach(var item in Model.Tags)
+{
+    <a href="/blog/tag/@item">@item</a> 
+}
+</p>
+}

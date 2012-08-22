@@ -70,6 +70,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database\raven-data.ico" />
+    <Content Include="Content\images\banner.jpg" />
+    <Content Include="Content\images\pic1.jpg" />
+    <Content Include="Content\images\pic2.jpg" />
+    <Content Include="Content\style.css" />
+    <Content Include="Raven.Studio.xap" />
     <Content Include="Views\_Layout.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -85,6 +90,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Infrastructure\PagedListHTMLHelper.cs" />
+    <Compile Include="Infrastructure\PagedListRenderOptions.cs" />
     <Compile Include="Model\BlogRepository.cs" />
     <Compile Include="Model\IBlogRepository.cs" />
     <Compile Include="Modules\HomeModule.cs" />
@@ -115,7 +122,6 @@
   <ItemGroup>
     <Folder Include="App_Data\Database\IndexDefinitions\TemporaryIndexDefinitionsAsSource\" />
     <Folder Include="App_Data\Database\temp\" />
-    <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Nancy\src\Nancy\Nancy.csproj">

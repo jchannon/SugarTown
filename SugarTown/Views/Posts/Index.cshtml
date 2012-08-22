@@ -33,6 +33,7 @@
             <th>ID</th>
             <th>Title</th>
             <th>Date Created</th>
+            <th>Published</th>
         </tr>  
     </thead>
     <tbody>                                                           
@@ -42,6 +43,14 @@
                 <td><a href="/SugarTown/@item.Id">Edit</a></td>
                 <td>@item.Title</td>
                 <td>@item.DateCreated</td>
+                <td>
+                    @{
+                        if (item.Published)
+                            <input type="checkbox" disabled="disabled" checked="checked" />
+                        else
+                            <input type="checkbox" disabled="disabled"/>
+                    }
+                </td>
             </tr>
         }
     </tbody>

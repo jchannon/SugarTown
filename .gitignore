@@ -162,5 +162,6 @@ pip-log.txt
 # Mac crap
 .DS_Store
 
-App_Data/
 Properties/
+App_Data/
+Nancy011/
