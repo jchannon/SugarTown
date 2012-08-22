@@ -65,6 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database\raven-data.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\jquery-ui.css" />
@@ -106,6 +107,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\Database\IndexDefinitions\" />
+    <Folder Include="App_Data\Database\Indexes\" />
+    <Folder Include="App_Data\Database\temp\" />
     <Folder Include="Models\" />
     <Folder Include="SugarTown\Posts\" />
   </ItemGroup>
@@ -117,6 +121,16 @@
       <Project>{95708FD6-C08C-4FC0-9D0D-BED6B233DF9C}</Project>
       <Name>SugarTown</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SugarTown\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Data\Database\Data" />
+    <None Include="App_Data\Database\logs\RVN.log" />
+    <None Include="App_Data\Database\logs\RVNres00001.jrs" />
+    <None Include="App_Data\Database\logs\RVNres00002.jrs" />
+    <None Include="App_Data\Database\system\RVN.chk" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
