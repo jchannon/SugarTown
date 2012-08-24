@@ -1,0 +1,33 @@
+﻿@model AgnosticPaging.Paged<SugarTown.Models.Post>
+              
+@*@using SugarTownDemoMVC.Infrastructure;*@
+
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<p>This is the blog page and the below content is all coming from <strong>SugarTown</strong></p>
+
+     @foreach (var post in Model.Data)
+     {
+         <h3><a href="@Url.Content("~/blog/")@post.Slug">@post.Title</a></h3>
+          @Html.Raw(post.Body)
+          if (post.Body.EndsWith("..."))
+           {
+               <a href="@Url.Content("~/blog/")@post.Slug">Read More</a>
+           }
+     }
+
+     
+@*@if (!this.Request.Path.Contains("tag"))
+{
+    @Html.PagedListPager(Model, page => "/blog/page/" + page)
+}
+else
+{
+    string tag = this.Request.Path.Split('/')[3];
+    @Html.Raw(tag)
+    @Html.PagedListPager(Model, page => "/blog/tag/"+@tag+"/page/" + page)
+}*@

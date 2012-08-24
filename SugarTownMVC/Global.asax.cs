@@ -22,14 +22,17 @@ namespace SugarTownMVC
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.IgnoreRoute("SugarTown/{*pathInfo}");
 
+            routes.MapRoute("blog", "blog/page/{pagenumber}", new { controller = "Blog", action = "BlogPaging", pagenumber = 1 });
+            routes.MapRoute("blogtitle", "blog/{postTitle}", new { controller = "Blog", action = "BlogTitle", postTitle = "" });
+            routes.MapRoute("singletag", "blog/tag/{tagName}", new { controller = "Blog", action = "Tag", tagName = "" });
+
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
-            
-            routes.MapRoute("blog", "blog/page/{pagenumber}", new { controller = "Blog", action = "BlogPaging", pagenumber = 1 });
-            routes.MapRoute("tag", "blog/tag/{tag}/page/{pagenumber}", new { controller = "Blog", action = "TagPaging", pagenumber = 1 });
+
+            routes.MapRoute("tag", "blog/tag/{tagName}/page/{pagenumber}", new { controller = "Blog", action = "TagPaging", tagName = "", pagenumber = 1 });
 
         }
 
