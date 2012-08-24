@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using AgnosticPaging;
 using Nancy;
 using Nancy.Responses.Negotiation;
-using SugarTown.Infrastructure;
 using SugarTown.Models;
 using SugarTownDemo.Model;
 

@@ -90,8 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Infrastructure\PagedListHTMLHelper.cs" />
-    <Compile Include="Infrastructure\PagedListRenderOptions.cs" />
+    <Compile Include="Infrastructure\HtmlExtensions.cs" />
     <Compile Include="Model\BlogRepository.cs" />
     <Compile Include="Model\IBlogRepository.cs" />
     <Compile Include="Modules\HomeModule.cs" />
@@ -127,6 +126,10 @@
     <ProjectReference Include="..\..\Nancy\src\Nancy\Nancy.csproj">
       <Project>{34576216-0DCA-4B0F-A0DC-9075E75A676F}</Project>
       <Name>Nancy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AgnosticPaging\AgnosticPaging.csproj">
+      <Project>{79151856-8A81-4E2D-95A7-AE1020BF8FAB}</Project>
+      <Name>AgnosticPaging</Name>
     </ProjectReference>
     <ProjectReference Include="..\SugarTown\SugarTown.csproj">
       <Project>{95708FD6-C08C-4FC0-9D0D-BED6B233DF9C}</Project>

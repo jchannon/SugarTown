@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
-namespace SugarTownDemo.Infrastructure
+namespace AgnosticPaging
 {
     ///<summary>
     /// Options for configuring the output of <see cref = "HtmlHelper" />.
@@ -238,10 +237,10 @@ namespace SugarTownDemo.Infrastructure
             get
             {
                 return new PagedListRenderOptions
-                {
-                    DisplayLinkToFirstPage = true,
-                    DisplayLinkToLastPage = true,
-                };
+                           {
+                               DisplayLinkToFirstPage = true,
+                               DisplayLinkToLastPage = true,
+                           };
             }
         }
 
@@ -253,11 +252,11 @@ namespace SugarTownDemo.Infrastructure
             get
             {
                 return new PagedListRenderOptions
-                {
-                    DisplayLinkToFirstPage = false,
-                    DisplayLinkToLastPage = false,
-                    DisplayLinkToIndividualPages = false
-                };
+                           {
+                               DisplayLinkToFirstPage = false,
+                               DisplayLinkToLastPage = false,
+                               DisplayLinkToIndividualPages = false
+                           };
             }
         }
 
@@ -269,12 +268,12 @@ namespace SugarTownDemo.Infrastructure
             get
             {
                 return new PagedListRenderOptions
-                {
-                    DisplayLinkToFirstPage = false,
-                    DisplayLinkToLastPage = false,
-                    DisplayLinkToIndividualPages = false,
-                    DisplayPageCountAndCurrentLocation = true
-                };
+                           {
+                               DisplayLinkToFirstPage = false,
+                               DisplayLinkToLastPage = false,
+                               DisplayLinkToIndividualPages = false,
+                               DisplayPageCountAndCurrentLocation = true
+                           };
             }
         }
 
@@ -286,12 +285,12 @@ namespace SugarTownDemo.Infrastructure
             get
             {
                 return new PagedListRenderOptions
-                {
-                    DisplayLinkToFirstPage = false,
-                    DisplayLinkToLastPage = false,
-                    DisplayLinkToIndividualPages = false,
-                    DisplayItemSliceAndTotal = true
-                };
+                           {
+                               DisplayLinkToFirstPage = false,
+                               DisplayLinkToLastPage = false,
+                               DisplayLinkToIndividualPages = false,
+                               DisplayItemSliceAndTotal = true
+                           };
             }
         }
 
@@ -303,13 +302,13 @@ namespace SugarTownDemo.Infrastructure
             get
             {
                 return new PagedListRenderOptions
-                {
-                    DisplayLinkToFirstPage = false,
-                    DisplayLinkToLastPage = false,
-                    DisplayLinkToPreviousPage = false,
-                    DisplayLinkToNextPage = false,
-                    DisplayEllipsesWhenNotShowingAllPageNumbers = false
-                };
+                           {
+                               DisplayLinkToFirstPage = false,
+                               DisplayLinkToLastPage = false,
+                               DisplayLinkToPreviousPage = false,
+                               DisplayLinkToNextPage = false,
+                               DisplayEllipsesWhenNotShowingAllPageNumbers = false
+                           };
             }
         }
 
@@ -321,13 +320,13 @@ namespace SugarTownDemo.Infrastructure
             get
             {
                 return new PagedListRenderOptions
-                {
-                    DisplayLinkToFirstPage = false,
-                    DisplayLinkToLastPage = false,
-                    DisplayLinkToPreviousPage = true,
-                    DisplayLinkToNextPage = true,
-                    MaximumPageNumbersToDisplay = 5
-                };
+                           {
+                               DisplayLinkToFirstPage = false,
+                               DisplayLinkToLastPage = false,
+                               DisplayLinkToPreviousPage = true,
+                               DisplayLinkToNextPage = true,
+                               MaximumPageNumbersToDisplay = 5
+                           };
             }
         }
 
@@ -339,17 +338,17 @@ namespace SugarTownDemo.Infrastructure
             get
             {
                 return new PagedListRenderOptions
-                {
-                    DisplayLinkToFirstPage = false,
-                    DisplayLinkToLastPage = false,
-                    DisplayLinkToIndividualPages = false,
-                    ContainerDivClasses = null,
-                    UlElementClasses = new[] { "pager" },
-                    ClassToApplyToFirstListItemInPager = null,
-                    ClassToApplyToLastListItemInPager = null,
-                    LinkToPreviousPageFormat = "Previous",
-                    LinkToNextPageFormat = "Next"
-                };
+                           {
+                               DisplayLinkToFirstPage = false,
+                               DisplayLinkToLastPage = false,
+                               DisplayLinkToIndividualPages = false,
+                               ContainerDivClasses = null,
+                               UlElementClasses = new[] { "pager" },
+                               ClassToApplyToFirstListItemInPager = null,
+                               ClassToApplyToLastListItemInPager = null,
+                               LinkToPreviousPageFormat = "Previous",
+                               LinkToNextPageFormat = "Next"
+                           };
             }
         }
 
@@ -361,19 +360,19 @@ namespace SugarTownDemo.Infrastructure
             get
             {
                 return new PagedListRenderOptions
-                {
-                    DisplayLinkToFirstPage = false,
-                    DisplayLinkToLastPage = false,
-                    DisplayLinkToIndividualPages = false,
-                    ContainerDivClasses = null,
-                    UlElementClasses = new[] { "pager" },
-                    ClassToApplyToFirstListItemInPager = "previous",
-                    ClassToApplyToLastListItemInPager = "next",
-                    LinkToPreviousPageFormat = "&larr; Older",
-                    LinkToNextPageFormat = "Newer &rarr;"
-                };
+                           {
+                               DisplayLinkToFirstPage = false,
+                               DisplayLinkToLastPage = false,
+                               DisplayLinkToIndividualPages = false,
+                               ContainerDivClasses = null,
+                               UlElementClasses = new[] { "pager" },
+                               ClassToApplyToFirstListItemInPager = "previous",
+                               ClassToApplyToLastListItemInPager = "next",
+                               LinkToPreviousPageFormat = "&larr; Older",
+                               LinkToNextPageFormat = "Newer &rarr;"
+                           };
             }
         }
     }
-
 }
+

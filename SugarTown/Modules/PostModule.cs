@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using AgnosticPaging;
 using Nancy.Responses.Negotiation;
-using SugarTown.Infrastructure;
 using SugarTown.Models;
 using Nancy.ModelBinding;
 using Nancy.RouteHelpers;

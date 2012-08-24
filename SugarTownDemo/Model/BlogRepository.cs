@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using AgnosticPaging;
 using RestSharp;
-using SugarTown.Infrastructure;
 using SugarTown.Models;
 
 namespace SugarTownDemo.Model

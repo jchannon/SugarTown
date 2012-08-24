@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SugarTown.Infrastructure
+namespace AgnosticPaging
 {
     public class Paged<T>
     {
@@ -56,8 +56,8 @@ namespace SugarTown.Infrastructure
             {
                 int numberOfLastItemOnPage = FirstItemOnPage + PageSize - 1;
                 return  (numberOfLastItemOnPage > TotalCount
-                                  ? TotalCount
-                                  : numberOfLastItemOnPage);
+                             ? TotalCount
+                             : numberOfLastItemOnPage);
             }
         }
 

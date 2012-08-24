@@ -1,4 +1,4 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<SugarTown.Infrastructure.Paged<SugarTown.Models.Post>>
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<AgnosticPaging.Paged<SugarTown.Models.Post>>
               
 @using SugarTownDemo.Infrastructure;
 
@@ -28,6 +28,5 @@
 else
 {
     string tag = this.Url.RenderContext.Context.Request.Path.Split('/')[3];
-    @Html.Raw(tag)
     @Html.PagedListPager(Model, page => "/blog/tag/"+@tag+"/page/" + page)
 }

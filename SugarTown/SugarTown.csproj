@@ -586,7 +586,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\PagedList.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Raven\DocumentSessionProvider.cs" />
     <Compile Include="Modules\PostModule.cs">
@@ -635,6 +634,10 @@
     <ProjectReference Include="..\..\Nancy\src\Nancy\Nancy.csproj">
       <Project>{34576216-0DCA-4B0F-A0DC-9075E75A676F}</Project>
       <Name>Nancy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AgnosticPaging\AgnosticPaging.csproj">
+      <Project>{79151856-8A81-4E2D-95A7-AE1020BF8FAB}</Project>
+      <Name>AgnosticPaging</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

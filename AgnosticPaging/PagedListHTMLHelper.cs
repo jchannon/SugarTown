@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Nancy.ViewEngines.Razor;
-using SugarTown.Infrastructure;
 
-namespace SugarTownDemo.Infrastructure
+namespace AgnosticPaging
 {
     ///<summary>
     ///	Extension methods for generating paging controls that can operate on instances of Paged.
@@ -72,7 +70,7 @@ namespace SugarTownDemo.Infrastructure
 
         private static string Previous<T>(Paged<T> list, Func<int, string> generatePageUrl, PagedListRenderOptions options)
         {
-            var targetPageNumber = list.PageIndex-1;
+            var targetPageNumber = list.PageIndex - 1;
             var previous = "<a>";
 
             string InnerHtml = string.Format(options.LinkToPreviousPageFormat, targetPageNumber);
@@ -93,7 +91,7 @@ namespace SugarTownDemo.Infrastructure
         private static string Page<T>(int i, Paged<T> list, Func<int, string> generatePageUrl, PagedListRenderOptions options)
         {
             var format = options.FunctionToDisplayEachPageNumber
-                ?? (pageNumber => string.Format(options.LinkToIndividualPageFormat, pageNumber));
+                         ?? (pageNumber => string.Format(options.LinkToIndividualPageFormat, pageNumber));
             var targetPageNumber = i;
             var page = "<a>";
 
@@ -182,11 +180,11 @@ namespace SugarTownDemo.Infrastructure
         ///<param name = "list">The Paged to use as the data source.</param>
         ///<param name = "generatePageUrl">A function that takes the page number of the desired page and returns a URL-string that will load that page.</param>
         ///<returns>Outputs the paging control HTML.</returns>
-        public static IHtmlString PagedListPager<T, U>(this HtmlHelpers<T> html,
-                                                   Paged<U> list,
-                                                   Func<int, string> generatePageUrl)
+        public static string PagedListPager<T>(
+            Paged<T> list,
+            Func<int, string> generatePageUrl)
         {
-            return PagedListPager(html, list, generatePageUrl, new PagedListRenderOptions());
+            return PagedListPager(list, generatePageUrl, new PagedListRenderOptions());
         }
 
         ///<summary>
@@ -197,10 +195,10 @@ namespace SugarTownDemo.Infrastructure
         ///<param name = "generatePageUrl">A function that takes the page number  of the desired page and returns a URL-string that will load that page.</param>
         ///<param name = "options">Formatting options.</param>
         ///<returns>Outputs the paging control HTML.</returns>
-        public static IHtmlString PagedListPager<T, U>(this HtmlHelpers<T> html,
-                                                   Paged<U> list,
-                                                   Func<int, string> generatePageUrl,
-                                                   PagedListRenderOptions options)
+        public static string PagedListPager<T>(
+            Paged<T> list,
+            Func<int, string> generatePageUrl,
+            PagedListRenderOptions options)
         {
             var listItemLinks = new List<string>();
 
@@ -409,7 +407,8 @@ namespace SugarTownDemo.Infrastructure
 
             outerDiv += "</div>";
 
-            return new NonEncodedHtmlString(outerDiv);
+            //return new NonEncodedHtmlString(outerDiv);
+            return outerDiv;
         }
 
         /////<summary>
@@ -419,7 +418,7 @@ namespace SugarTownDemo.Infrastructure
         /////<param name="list">The Paged to use as the data source.</param>
         /////<param name="formAction">The URL this form should submit the GET request to.</param>
         /////<returns>Outputs the "Go To Page:" form HTML.</returns>
-        //public static IHtmlString PagedListGoToPageForm(this System.Web.Mvc.HtmlHelper html,
+        //public static string PagedListGoToPageForm(this System.Web.Mvc.HtmlHelper html,
         //                                                  Paged list,
         //                                                  string formAction)
         //{
@@ -434,7 +433,7 @@ namespace SugarTownDemo.Infrastructure
         /////<param name="formAction">The URL this form should submit the GET request to.</param>
         /////<param name="inputFieldName">The querystring key this form should submit the new page number as.</param>
         /////<returns>Outputs the "Go To Page:" form HTML.</returns>
-        //public static IHtmlString PagedListGoToPageForm(this System.Web.Mvc.HtmlHelper html,
+        //public static string PagedListGoToPageForm(this System.Web.Mvc.HtmlHelper html,
         //                                                  Paged<> list,
         //                                                  string formAction,
         //                                                  string inputFieldName)
@@ -450,7 +449,7 @@ namespace SugarTownDemo.Infrastructure
         /////<param name="formAction">The URL this form should submit the GET request to.</param>
         /////<param name="options">Formatting options.</param>
         /////<returns>Outputs the "Go To Page:" form HTML.</returns>
-        //public static IHtmlString PagedListGoToPageForm(this System.Web.Mvc.HtmlHelper html,
+        //public static string PagedListGoToPageForm(this System.Web.Mvc.HtmlHelper html,
         //                                         Paged list,
         //                                         string formAction,
         //                                         GoToFormRenderOptions options)
@@ -479,7 +478,7 @@ namespace SugarTownDemo.Infrastructure
         //    fieldset.InnerHtml += input.ToString(TagRenderMode.SelfClosing);
         //    fieldset.InnerHtml += submit.ToString(TagRenderMode.SelfClosing);
         //    form.InnerHtml = fieldset.ToString();
-        //    return new IHtmlString(form.ToString());
+        //    return new string(form.ToString());
         //}
     }
 }

@@ -1,4 +1,4 @@
-﻿using SugarTown.Infrastructure;
+﻿using AgnosticPaging;
 using SugarTown.Models;
 
 namespace SugarTownDemo.Model
