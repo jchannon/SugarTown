@@ -27,6 +27,9 @@ namespace SugarTownMVC
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
+            
+            routes.MapRoute("blog", "blog/page/{pagenumber}", new { controller = "Blog", action = "BlogPaging", pagenumber = 1 });
+            routes.MapRoute("tag", "blog/tag/{tag}/page/{pagenumber}", new { controller = "Blog", action = "TagPaging", pagenumber = 1 });
 
         }
 
