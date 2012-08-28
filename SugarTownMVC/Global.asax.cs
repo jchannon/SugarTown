@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using SugarTownDemoMVC.Model;
 
 namespace SugarTownMVC
 {
@@ -42,6 +43,7 @@ namespace SugarTownMVC
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
         }
     }
 }
