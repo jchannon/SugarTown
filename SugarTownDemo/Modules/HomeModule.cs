@@ -4,6 +4,7 @@ using Nancy;
 using Nancy.Responses.Negotiation;
 using SugarTown.Models;
 using SugarTownDemo.Model;
+using SugarTownDemo.Infrastructure;
 
 namespace SugarTownDemo.Modules
 {
@@ -34,7 +35,7 @@ namespace SugarTownDemo.Modules
 
                                                                 Paged<Post> model = _blogRepository.GetBlogUrlFriendlyPosts(Domain, pageNumber);
 
-                                                                return View["Blog", model]; 
+                                                                return View["Blog", model];
                                                             };
 
             Get["/blog/{title}"] = parameters =>
@@ -49,6 +50,13 @@ namespace SugarTownDemo.Modules
             Get["/blog/tag/{tagname}"] = parameters => ReturnTagModelAndView(parameters);
 
             Get["/blog/tag/{tagname}/page/{pagenumber}"] = parameters => ReturnTagModelAndView(parameters);
+
+            Get["/blog/rss"] = parameters =>
+                                   {
+                                       //return first page
+                                       Paged<Post> model = _blogRepository.GetBlogUrlFriendlyPosts(Domain, 1);
+                                       return Response.AsRSS(model.Data, "My Blog");
+                                   };
         }
 
         public Negotiator ReturnTagModelAndView(dynamic parameters)

@@ -48,6 +48,7 @@
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.103.4\lib\net4\RestSharp.dll</HintPath>
     </Reference>
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -91,6 +92,7 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Infrastructure\HtmlExtensions.cs" />
+    <Compile Include="Infrastructure\RSSResponse.cs" />
     <Compile Include="Model\BlogRepository.cs" />
     <Compile Include="Model\IBlogRepository.cs" />
     <Compile Include="Modules\HomeModule.cs" />
