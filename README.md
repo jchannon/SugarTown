@@ -35,5 +35,5 @@ Please check out the demo projects to see how to integrate SugarTown into your w
   [1]: http://nancyfx.org/
   [2]: http://www.sinatrarb.com/
   [3]: http://i.imgur.com/h7e1g.jpg
-  [4]: http://i.imgur.com/S8XtE.jpg
+  [4]: http://i.imgur.com/aYTtx.jpg
   <sub>* Sugar Town & Something Stupid</sub>
