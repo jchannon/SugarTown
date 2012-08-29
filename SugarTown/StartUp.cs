@@ -17,27 +17,9 @@ namespace SugarTown
 {
     public class StartUp : IApplicationStartup
     {
-        //private readonly SugarTownConfiguration diagnosticsConfiguration;
-        //private readonly IRootPathProvider rootPathProvider;
-        //private readonly IEnumerable<ISerializer> serializers;
-        //private readonly NancyInternalConfiguration configuration;
-        //private readonly IModelBinderLocator modelBinderLocator;
-        //private readonly IEnumerable<IResponseProcessor> _responseProcessors;
-
-        //public StartUp(SugarTownConfiguration diagnosticsConfiguration, IRootPathProvider rootPathProvider, IEnumerable<ISerializer> serializers, NancyInternalConfiguration configuration, IModelBinderLocator modelBinderLocator, IEnumerable<IResponseProcessor> responseProcessors)
-        //{
-        //    this.diagnosticsConfiguration = diagnosticsConfiguration;
-        //    this.rootPathProvider = rootPathProvider;
-        //    this.serializers = serializers;
-        //    this.configuration = configuration;
-        //    this.modelBinderLocator = modelBinderLocator;
-        //    _responseProcessors = responseProcessors;
-        //}
-
         public void Initialize(IPipelines pipelines)
         {
             SugarTown.Enable(pipelines);
-            //SugarTown.Enable(diagnosticsConfiguration, pipelines, rootPathProvider, serializers, configuration, modelBinderLocator, _responseProcessors);
         }
 
     }
