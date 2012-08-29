@@ -15,7 +15,6 @@ namespace SugarTown
         public SugarTownViewRenderer(NancyContext context)
         {
             this.context = context;
-            //this.ViewResolver = viewResolver;
         }
 
         public Response this[string name]
@@ -37,8 +36,6 @@ namespace SugarTown
             var location = GetViewLocationResult(fullName, stream);
 
             var cache = new DefaultViewCache();
-
-            //context.Items.Add(CsrfToken.DEFAULT_CSRF_KEY, "DIAGNOSTICSTOKEN");
 
             var renderContext =
                 new DefaultRenderContext(ViewResolver, cache, new ViewLocationContext() { Context = context });
