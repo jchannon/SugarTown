@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using AgnosticPaging;
 using SugarTown.Models;
 using SugarTownDemoMVC.Model;
+using SugarTownMVC.Infrastructure;
 
 namespace SugarTownDemoMVC.Controllers
 {
@@ -57,6 +58,14 @@ namespace SugarTownDemoMVC.Controllers
         {
             Paged<Post> model = _blogRepository.GetPostsWithTags(Domain, tagName, pageNumber);
             return View("Blog", model);
+        }
+
+        public RssActionResult RSS()
+        {
+            //Just return most recent
+            Paged<Post> model = _blogRepository.GetBlogUrlFriendlyPosts(Domain, 1);
+
+            return new RssActionResult() { Model = model.Data, RSSTitle="My Blog Title" };
         }
 
     }

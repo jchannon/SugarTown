@@ -24,6 +24,7 @@ namespace SugarTownMVC
             routes.IgnoreRoute("SugarTown/{*pathInfo}");
 
             routes.MapRoute("blog", "blog/page/{pagenumber}", new { controller = "Blog", action = "BlogPaging", pagenumber = 1 });
+            routes.MapRoute("rss", "blog/rss", new { controller = "Blog", action = "RSS" });
             routes.MapRoute("blogtitle", "blog/{postTitle}", new { controller = "Blog", action = "BlogTitle", postTitle = "" });
             routes.MapRoute("singletag", "blog/tag/{tagName}", new { controller = "Blog", action = "Tag", tagName = "" });
 

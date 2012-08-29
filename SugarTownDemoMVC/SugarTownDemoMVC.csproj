@@ -52,6 +52,7 @@
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.103.4\lib\net4\RestSharp.dll</HintPath>
     </Reference>
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages" />
     <Reference Include="System.Web.Helpers" />
@@ -86,6 +87,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\HtmlExtensions.cs" />
+    <Compile Include="Infrastructure\RSSActionResult.cs" />
     <Compile Include="Model\BlogRepository.cs" />
     <Compile Include="Model\IBlogRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
