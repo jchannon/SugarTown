@@ -72,12 +72,19 @@ namespace SugarTown.Modules
                                 return View["Edit", model];
                             };
 
+            Delete[Route.Root().AnyIntAtLeastOnce("id")] = parameters =>
+            {
+                //DatabaseCommands operations execute immediately, and do not wait for SaveChanges to be called.
+                DocumentSession.Advanced.DatabaseCommands.Delete("posts/" + parameters.id, null);
+                return "Deleted";
+            };
+
             Post[Route.Root().AnyIntAtLeastOnce("id")] = parameters =>
                             {
                                 var model = DocumentSession.Load<Post>((int)parameters.id);
                                 this.BindTo(model);
                                 DocumentSession.SaveChanges();
-                                return Response.AsRedirect("/sugartown/posts");
+                                return Response.AsRedirect("/sugartown/posts/page/1");
                             };
 
 
@@ -132,7 +139,7 @@ namespace SugarTown.Modules
                                 model.DateCreated = DateTime.Now;
                                 DocumentSession.Store(model);
                                 DocumentSession.SaveChanges();
-                                return Response.AsRedirect("/sugartown/posts");
+                                return Response.AsRedirect("/sugartown/posts/page/1");
                             };
 
 
