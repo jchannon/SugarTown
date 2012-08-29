@@ -11,7 +11,7 @@ NancyFX gets its name from the Ruby web framework [Sinatra][2] (Nancy was the da
 
 **Basic Usage**
 
-Visit mydomain.com/SugarTown/posts to add, view, update and delete blog posts
+Visit mydomain.com/SugarTown/posts/page/1 to add, view, update and delete blog posts
 
 In your website use the API to access the blog posts
 
