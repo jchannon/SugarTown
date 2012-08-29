@@ -1,8 +1,7 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+﻿@model SugarTown.Models.Post
 
 @{
-    ViewBag.Title = "SugarTownDemoMVC - " + Model.Title;
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>@Model.Title</h2>
