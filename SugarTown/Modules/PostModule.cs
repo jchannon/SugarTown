@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using AgnosticPaging;
 using Nancy.Responses.Negotiation;
+using Nancy.Security;
 using SugarTown.Models;
 using Nancy.ModelBinding;
 using Nancy.RouteHelpers;
@@ -22,8 +23,9 @@ namespace SugarTown.Modules
         public PostModule()
             : base("/posts")
         {
-            DocumentSession = new DocumentSessionProvider().GetSession();
+            this.RequiresAuthentication();
 
+            DocumentSession = new DocumentSessionProvider().GetSession();
 
             Get["/page/{pagenumber}"] = parameters =>
                            {

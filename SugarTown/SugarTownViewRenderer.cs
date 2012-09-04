@@ -45,6 +45,13 @@ namespace SugarTown
 
         public Stream GetBodyStream(string name)
         {
+#if NONEMBEDDEDMODE
+            var stream = new MemoryStream();
+            new GenericFileResponse("Views\\Posts\\" + name).Contents.Invoke(stream);
+            stream.Position = 0;
+            return stream;
+#else
+
             var view = new EmbeddedFileResponse(typeof(SugarTownViewRenderer).Assembly, "SugarTown.Views.Posts", name);
 
             var stream = new MemoryStream();
@@ -52,6 +59,7 @@ namespace SugarTown
             view.Contents.Invoke(stream);
             stream.Position = 0;
             return stream;
+#endif
         }
 
         public ViewLocationResult GetViewLocationResult(string name, Stream bodyStream)

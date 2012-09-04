@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Nancy;
+using Nancy.Authentication.Forms;
 using Nancy.Bootstrapper;
 using Nancy.Extensions;
 using Nancy.ModelBinding;
@@ -43,6 +44,7 @@ namespace SugarTown
                             return null;
                         }
 
+
                         if (ctx.Request.Path.StartsWith(ResourcePrefix, StringComparison.OrdinalIgnoreCase))// || (ctx.Request.Path.StartsWith(ViewPrefix, StringComparison.OrdinalIgnoreCase) && ctx.Request.Headers.Accept.Any(x => x.Item1 == "text/html")))
                         {
                             string resourceNamespace = string.Empty;
@@ -65,13 +67,31 @@ namespace SugarTown
                                 resourceNamespace += string.Format(".{0}", path.Replace('\\', '.'));
                             }
 
+#if NONEMBEDDEDMODE
+                            var fileName = Path.GetFileName(ctx.Request.Url.Path);
+                            var directory = Path.GetDirectoryName(ctx.Request.Url.Path).Substring(11);
+
+                            return new GenericFileResponse(directory + "\\" + fileName);
+#else
                             return new EmbeddedFileResponse(
                                 typeof(SugarTown).Assembly,
                                 resourceNamespace,
                                 Path.GetFileName(ctx.Request.Url.Path));
+#endif
                         }
 
+
+                        var formsAuthConfiguration =
+                                new FormsAuthenticationConfiguration()
+                                {
+                                    RedirectUrl = SugarTown.UrlPrefix + "/login",
+                                    UserMapper = new UserMapper(),
+                                };
+
+                        FormsAuthentication.Enable(pipelines, formsAuthConfiguration);
+
                         return null;
+
                     }));
 
         }
