@@ -1,0 +1,35 @@
+﻿.container {
+	
+}
+
+.header {
+	background: #24559a; padding: 10px 0;
+}
+
+.welcome {
+background: url('../../Images/ticker_bg.jpg') repeat-x; 
+}
+
+.navbar {
+	margin: 0;
+	
+}
+
+.navbar-inner {
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#24559A),to(#ffffff));
+	background-image: -webkit-linear-gradient(top,#24559A,#ffffff);
+}
+
+
+.navbar-inner ul.nav { 	}
+.navbar-inner ul.nav li { }
+.navbar-inner ul.nav li a {color: #fff; font-weight: bold; text-decoration: none;}
+
+
+.welcome li { display: inline; }
+
+
+.footer {
+	background: #24559a; color: #fff;
+}
+

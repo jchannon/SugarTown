@@ -7,25 +7,30 @@
 
 @section HeadArea{
 
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/SugarTown/Content/DataTables192/media/css/demo_table_jui.css")"/>
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/SugarTown/Content/themes/smoothness/jquery-ui.css")"/>
+ @*   <link rel="stylesheet" type="text/css" href="@Url.Content("~/SugarTown/Content/DataTables192/media/css/demo_table_jui.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/SugarTown/Content/themes/smoothness/jquery-ui.css")"/>*@
 
     <script type="text/javascript" language="javascript" src="@Url.Content("~/SugarTown/Content/Scripts/jquery-1.4.4.min.js")"></script>
     <script type="text/javascript" language="javascript" src="@Url.Content("~/SugarTown/Content/Scripts/DataTables192/media/js/jquery.dataTables.js")"></script>
     <script type="text/javascript" language="javascript" src="@Url.Content("~/SugarTown/Content/Scripts/DataTables192/media/js/datesorting.js")"></script>
+     <script type="text/javascript" language="javascript" src="@Url.Content("~/SugarTown/Content/Scripts/DataTables192/media/js/twitterbootstrap.js")"></script>
 		<script type="text/javascript" charset="utf-8">
 		    $(document).ready(function () {
 		        $('#posts').dataTable(
 		            {
 		                "bJQueryUI": true,
 		                "aoColumns": [
-                                null,
-                                null,
-                                { "sType": "date-euro" },
-                                null
-                            ]
-		            }
-                );
+		                    null,
+		                    null,
+		                    { "sType": "date-euro" },
+		                    null
+		                ],
+		                "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+		                "sPaginationType": "bootstrap",
+		                "oLanguage": {
+		                    "sLengthMenu": "_MENU_ records per page"
+		                }
+		            });
 
 		        $('.btnDelete').live('click', function () {
 		            var r = confirm("Are you sure you want to delete this post?");
@@ -51,7 +56,7 @@
 
 <a href="/sugartown/posts/create">Create</a>
                
-<table id="posts">
+<table id="posts" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>ID</th>
